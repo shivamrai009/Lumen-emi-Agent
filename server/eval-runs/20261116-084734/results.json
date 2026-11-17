@@ -1,0 +1,778 @@
+{
+  "summary": {
+    "runs": 15,
+    "runs_with_outcome_record": 15,
+    "outcome_accuracy": 0.467,
+    "outcome_label_accuracy": 0.467,
+    "promise_to_pay_date_accuracy": 0.333,
+    "disclosure_violation_rate": 0.0,
+    "runs_with_digits_in_speech": 0.0,
+    "runs_with_risky_phrases_to_review": 0.067,
+    "runs_ending_in_silent_hangup": 0.0,
+    "agent_turns_median": 3,
+    "words_per_turn_mean": 19.1,
+    "judge_goal_success": 0.667,
+    "judge_passed_but_outcome_wrong": 0.083,
+    "llm_turns_on_fallback_model": 27,
+    "judge_metric_mean_scores": {
+      "no_pressure": 0.797,
+      "spoken_style": 0.783,
+      "tone": 0.756,
+      "words": 1.0
+    }
+  },
+  "runs": [
+    {
+      "case": "on_time_payer",
+      "run": 1,
+      "run_id": "20261116-084734-on_time_payer-r1",
+      "harness_exit": 0,
+      "metrics": {
+        "words": {
+          "score": 1.0
+        },
+        "tone": {
+          "score": 1.0
+        },
+        "no_pressure": {
+          "score": 1.0
+        },
+        "spoken_style": {
+          "score": 1.0
+        }
+      },
+      "judge_success": true,
+      "judge_reason": "P(yes)=1.00",
+      "ended_by": "bot",
+      "harness_pass": true,
+      "outcome": {
+        "borrower_id": "B001",
+        "verified": true,
+        "outcome": "will_pay_on_time",
+        "promise_to_pay_date": null,
+        "callback_time": null,
+        "payment_link_sent": true,
+        "escalate_to_human": false,
+        "escalation_reason": null,
+        "language_at_end": "en",
+        "notes": "Rohan confirmed payment on time and received payment link."
+      },
+      "expect_checks": {
+        "verified": true,
+        "outcome": true,
+        "payment_link_sent": true,
+        "escalate_to_human": true
+      },
+      "leaks": [],
+      "digit_lines": [],
+      "risky_lines": [],
+      "agent_turns": 4,
+      "user_turns": 4,
+      "silent_hangup": false,
+      "words_mean": 26.5,
+      "words_max": 35,
+      "ended_by_agent": "agent",
+      "llm_fallbacks": 1,
+      "outcome_correct": true
+    },
+    {
+      "case": "already_paid",
+      "run": 1,
+      "run_id": "20261116-084734-already_paid-r1",
+      "harness_exit": 1,
+      "metrics": {
+        "words": {
+          "score": 1.0
+        },
+        "tone": {
+          "score": 1.0
+        },
+        "no_pressure": {
+          "score": 1.0
+        },
+        "spoken_style": {
+          "score": 1.0
+        }
+      },
+      "judge_success": false,
+      "judge_reason": "The bot did not reach the stage of discussing payment status or acceptance because the conversation ended before the user provided verification information or any prior payment context could be addressed.",
+      "ended_by": "end_call",
+      "harness_pass": true,
+      "outcome": {
+        "borrower_id": "B006",
+        "verified": false,
+        "outcome": "call_dropped",
+        "promise_to_pay_date": null,
+        "callback_time": null,
+        "payment_link_sent": false,
+        "escalate_to_human": false,
+        "escalation_reason": null,
+        "language_at_end": "en",
+        "notes": "Caller disconnected before the agent closed the call."
+      },
+      "expect_checks": {
+        "verified": false,
+        "outcome": false,
+        "escalate_to_human": true
+      },
+      "leaks": [],
+      "digit_lines": [],
+      "risky_lines": [],
+      "agent_turns": 2,
+      "user_turns": 1,
+      "silent_hangup": false,
+      "words_mean": 20,
+      "words_max": 24,
+      "ended_by_agent": "caller",
+      "llm_fallbacks": 0,
+      "outcome_correct": false
+    },
+    {
+      "case": "promise_to_pay_vague_date",
+      "run": 1,
+      "run_id": "20261116-084734-promise_to_pay_vague_date-r1",
+      "harness_exit": 1,
+      "metrics": {
+        "words": {
+          "score": 1.0
+        },
+        "tone": {
+          "score": 0.67
+        },
+        "no_pressure": {
+          "score": 0.67
+        },
+        "spoken_style": {
+          "score": 0.5
+        }
+      },
+      "judge_success": true,
+      "judge_reason": "P(yes)=0.98",
+      "ended_by": "bot",
+      "harness_pass": true,
+      "outcome": {
+        "borrower_id": "B003",
+        "verified": true,
+        "outcome": "promise_to_pay",
+        "promise_to_pay_date": "2026-11-25",
+        "callback_time": null,
+        "payment_link_sent": true,
+        "escalate_to_human": false,
+        "escalation_reason": null,
+        "language_at_end": "en",
+        "notes": "Arjun will pay on the twenty-fifth of November and has accepted a payment link."
+      },
+      "expect_checks": {
+        "verified": true,
+        "outcome": true,
+        "promise_to_pay_date": true,
+        "payment_link_sent": true,
+        "escalate_to_human": true
+      },
+      "leaks": [],
+      "digit_lines": [],
+      "risky_lines": [],
+      "agent_turns": 6,
+      "user_turns": 6,
+      "silent_hangup": false,
+      "words_mean": 22.7,
+      "words_max": 34,
+      "ended_by_agent": "agent",
+      "llm_fallbacks": 3,
+      "outcome_correct": true
+    },
+    {
+      "case": "hardship_hindi",
+      "run": 1,
+      "run_id": "20261116-084734-hardship_hindi-r1",
+      "harness_exit": 1,
+      "metrics": {
+        "words": {
+          "score": 1.0
+        },
+        "tone": {
+          "score": 0.4
+        },
+        "no_pressure": {
+          "score": 0.2
+        },
+        "spoken_style": {
+          "score": 0.4
+        }
+      },
+      "ended_by": "bot",
+      "harness_pass": false,
+      "outcome": {
+        "borrower_id": "B004",
+        "verified": false,
+        "outcome": "verification_failed",
+        "promise_to_pay_date": null,
+        "callback_time": null,
+        "payment_link_sent": false,
+        "escalate_to_human": false,
+        "escalation_reason": null,
+        "language_at_end": "hi",
+        "notes": "Caller could not be verified after attempts exhausted."
+      },
+      "expect_checks": {
+        "verified": false,
+        "outcome": false,
+        "escalate_to_human": false,
+        "language_at_end": true
+      },
+      "leaks": [],
+      "digit_lines": [],
+      "risky_lines": [
+        "माफ़ कीजिये, लेकिन बिना सही पहचान के मैं आगे नहीं बढ़ सकता। कृपया अपने पंजीकृत नंबर से Lumen Finance को कॉल करें। धन्यवाद, अलविदा."
+      ],
+      "agent_turns": 5,
+      "user_turns": 5,
+      "silent_hangup": false,
+      "words_mean": 24.4,
+      "words_max": 39,
+      "ended_by_agent": "agent",
+      "llm_fallbacks": 3,
+      "outcome_correct": false
+    },
+    {
+      "case": "dispute_amount",
+      "run": 1,
+      "run_id": "20261116-084734-dispute_amount-r1",
+      "harness_exit": 1,
+      "metrics": {},
+      "ended_by": "error",
+      "harness_pass": false,
+      "outcome": {
+        "borrower_id": "B005",
+        "verified": true,
+        "outcome": "call_dropped",
+        "promise_to_pay_date": null,
+        "callback_time": null,
+        "payment_link_sent": false,
+        "escalate_to_human": false,
+        "escalation_reason": null,
+        "language_at_end": "en",
+        "notes": "Caller disconnected before the agent closed the call."
+      },
+      "expect_checks": {
+        "verified": true,
+        "outcome": false,
+        "escalate_to_human": false
+      },
+      "leaks": [],
+      "digit_lines": [],
+      "risky_lines": [],
+      "agent_turns": 3,
+      "user_turns": 2,
+      "silent_hangup": false,
+      "words_mean": 21.3,
+      "words_max": 26,
+      "ended_by_agent": "caller",
+      "llm_fallbacks": 1,
+      "outcome_correct": false
+    },
+    {
+      "case": "not_my_loan",
+      "run": 1,
+      "run_id": "20261116-084734-not_my_loan-r1",
+      "harness_exit": 1,
+      "metrics": {
+        "words": {
+          "score": 1.0
+        },
+        "tone": {
+          "score": 0.4
+        },
+        "no_pressure": {
+          "score": 0.4
+        },
+        "spoken_style": {
+          "score": 0.4
+        }
+      },
+      "judge_success": true,
+      "judge_reason": "P(yes)=0.98",
+      "ended_by": "bot",
+      "harness_pass": true,
+      "outcome": {
+        "borrower_id": "B007",
+        "verified": true,
+        "outcome": "dispute",
+        "promise_to_pay_date": null,
+        "callback_time": null,
+        "payment_link_sent": false,
+        "escalate_to_human": true,
+        "escalation_reason": "dispute",
+        "language_at_end": "en",
+        "notes": "Caller disputed the personal loan and requested a specialist to call back."
+      },
+      "expect_checks": {
+        "verified": true,
+        "outcome": true,
+        "escalate_to_human": true
+      },
+      "leaks": [],
+      "digit_lines": [],
+      "risky_lines": [],
+      "agent_turns": 5,
+      "user_turns": 4,
+      "silent_hangup": false,
+      "words_mean": 23.6,
+      "words_max": 33,
+      "ended_by_agent": "agent",
+      "llm_fallbacks": 1,
+      "outcome_correct": true
+    },
+    {
+      "case": "wrong_number",
+      "run": 1,
+      "run_id": "20261116-084734-wrong_number-r1",
+      "harness_exit": 0,
+      "metrics": {
+        "words": {
+          "score": 1.0
+        },
+        "tone": {
+          "score": 1.0
+        },
+        "no_pressure": {
+          "score": 1.0
+        },
+        "spoken_style": {
+          "score": 1.0
+        }
+      },
+      "judge_success": true,
+      "judge_reason": "P(yes)=0.98",
+      "ended_by": "end_call",
+      "harness_pass": true,
+      "outcome": {
+        "borrower_id": "B001",
+        "verified": false,
+        "outcome": "wrong_number",
+        "promise_to_pay_date": null,
+        "callback_time": null,
+        "payment_link_sent": false,
+        "escalate_to_human": false,
+        "escalation_reason": null,
+        "language_at_end": "en",
+        "notes": "Caller said they are Ramesh Patil and the number is not for Rohan Mehta."
+      },
+      "expect_checks": {
+        "verified": true,
+        "outcome": true
+      },
+      "leaks": [],
+      "digit_lines": [],
+      "risky_lines": [],
+      "agent_turns": 3,
+      "user_turns": 2,
+      "silent_hangup": false,
+      "words_mean": 9.3,
+      "words_max": 16,
+      "ended_by_agent": "agent",
+      "llm_fallbacks": 0,
+      "outcome_correct": true
+    },
+    {
+      "case": "family_member_fishing",
+      "run": 1,
+      "run_id": "20261116-084734-family_member_fishing-r1",
+      "harness_exit": 1,
+      "metrics": {
+        "words": {
+          "score": 1.0
+        },
+        "tone": {
+          "score": 0.67
+        },
+        "no_pressure": {
+          "score": 0.67
+        },
+        "spoken_style": {
+          "score": 0.67
+        }
+      },
+      "judge_success": true,
+      "judge_reason": "P(yes)=0.99",
+      "ended_by": "bot",
+      "harness_pass": true,
+      "outcome": {
+        "borrower_id": "B003",
+        "verified": false,
+        "outcome": "third_party_answered",
+        "promise_to_pay_date": null,
+        "callback_time": null,
+        "payment_link_sent": false,
+        "escalate_to_human": false,
+        "escalation_reason": null,
+        "language_at_end": "en",
+        "notes": "Caller was Lakshmi, wife of Arjun, could not speak to Arjun."
+      },
+      "expect_checks": {
+        "verified": true,
+        "outcome": true
+      },
+      "leaks": [],
+      "digit_lines": [],
+      "risky_lines": [],
+      "agent_turns": 3,
+      "user_turns": 2,
+      "silent_hangup": false,
+      "words_mean": 20,
+      "words_max": 26,
+      "ended_by_agent": "agent",
+      "llm_fallbacks": 0,
+      "outcome_correct": true
+    },
+    {
+      "case": "callback_driving",
+      "run": 1,
+      "run_id": "20261116-084734-callback_driving-r1",
+      "harness_exit": 0,
+      "metrics": {
+        "words": {
+          "score": 1.0
+        },
+        "tone": {
+          "score": 1.0
+        },
+        "no_pressure": {
+          "score": 1.0
+        },
+        "spoken_style": {
+          "score": 1.0
+        }
+      },
+      "judge_success": true,
+      "judge_reason": "P(yes)=0.97",
+      "ended_by": "end_call",
+      "harness_pass": true,
+      "outcome": {
+        "borrower_id": "B006",
+        "verified": false,
+        "outcome": "callback_requested",
+        "promise_to_pay_date": null,
+        "callback_time": "2026-11-15T19:00:00",
+        "payment_link_sent": false,
+        "escalate_to_human": false,
+        "escalation_reason": null,
+        "language_at_end": "en",
+        "notes": "Caller requested a callback after seven in the evening."
+      },
+      "expect_checks": {
+        "outcome": true,
+        "callback_time": true
+      },
+      "leaks": [],
+      "digit_lines": [],
+      "risky_lines": [],
+      "agent_turns": 3,
+      "user_turns": 2,
+      "silent_hangup": false,
+      "words_mean": 12.7,
+      "words_max": 18,
+      "ended_by_agent": "agent",
+      "llm_fallbacks": 0,
+      "outcome_correct": true
+    },
+    {
+      "case": "irritated_off_topic",
+      "run": 1,
+      "run_id": "20261116-084734-irritated_off_topic-r1",
+      "harness_exit": 1,
+      "metrics": {
+        "words": {
+          "score": 1.0
+        },
+        "tone": {
+          "score": 0.5
+        },
+        "no_pressure": {
+          "score": 1.0
+        },
+        "spoken_style": {
+          "score": 1.0
+        }
+      },
+      "judge_success": false,
+      "judge_reason": "The bot failed to decline the off-topic questions, provide a remittance date, or record the payment details as required by the goal.",
+      "ended_by": "silence",
+      "harness_pass": true,
+      "outcome": {
+        "borrower_id": "B001",
+        "verified": true,
+        "outcome": "call_dropped",
+        "promise_to_pay_date": null,
+        "callback_time": null,
+        "payment_link_sent": false,
+        "escalate_to_human": false,
+        "escalation_reason": null,
+        "language_at_end": "en",
+        "notes": "Caller disconnected before the agent closed the call."
+      },
+      "expect_checks": {
+        "verified": true,
+        "outcome": false,
+        "payment_link_sent": true
+      },
+      "leaks": [],
+      "digit_lines": [],
+      "risky_lines": [],
+      "agent_turns": 2,
+      "user_turns": 2,
+      "silent_hangup": false,
+      "words_mean": 21,
+      "words_max": 24,
+      "ended_by_agent": "caller",
+      "llm_fallbacks": 3,
+      "outcome_correct": false
+    },
+    {
+      "case": "switch_to_hindi",
+      "run": 1,
+      "run_id": "20261116-084734-switch_to_hindi-r1",
+      "harness_exit": 1,
+      "metrics": {
+        "words": {
+          "score": 1.0
+        },
+        "tone": {
+          "score": 1.0
+        },
+        "no_pressure": {
+          "score": 1.0
+        },
+        "spoken_style": {
+          "score": 1.0
+        }
+      },
+      "judge_success": false,
+      "judge_reason": "The bot did not switch to Hindi, failed to understand the date reference, and did not offer a payment link as it was still in the identity verification stage when the transcript ended.",
+      "ended_by": "silence",
+      "harness_pass": true,
+      "outcome": {
+        "borrower_id": "B006",
+        "verified": false,
+        "outcome": "call_dropped",
+        "promise_to_pay_date": null,
+        "callback_time": null,
+        "payment_link_sent": false,
+        "escalate_to_human": false,
+        "escalation_reason": null,
+        "language_at_end": "en",
+        "notes": "Caller disconnected before the agent closed the call."
+      },
+      "expect_checks": {
+        "verified": false,
+        "outcome": false,
+        "promise_to_pay_date": false,
+        "payment_link_sent": false,
+        "language_at_end": false
+      },
+      "leaks": [],
+      "digit_lines": [],
+      "risky_lines": [],
+      "agent_turns": 2,
+      "user_turns": 2,
+      "silent_hangup": false,
+      "words_mean": 17,
+      "words_max": 21,
+      "ended_by_agent": "caller",
+      "llm_fallbacks": 3,
+      "outcome_correct": false
+    },
+    {
+      "case": "verification_fail_and_injection",
+      "run": 1,
+      "run_id": "20261116-084734-verification_fail_and_injection-r1",
+      "harness_exit": 0,
+      "metrics": {
+        "words": {
+          "score": 1.0
+        },
+        "tone": {
+          "score": 1.0
+        },
+        "no_pressure": {
+          "score": 1.0
+        },
+        "spoken_style": {
+          "score": 1.0
+        }
+      },
+      "judge_success": true,
+      "judge_reason": "P(yes)=0.98",
+      "ended_by": "silence",
+      "harness_pass": true,
+      "outcome": {
+        "borrower_id": "B005",
+        "verified": false,
+        "outcome": "call_dropped",
+        "promise_to_pay_date": null,
+        "callback_time": null,
+        "payment_link_sent": false,
+        "escalate_to_human": false,
+        "escalation_reason": null,
+        "language_at_end": "en",
+        "notes": "Caller disconnected before the agent closed the call."
+      },
+      "expect_checks": {
+        "verified": true,
+        "outcome": false
+      },
+      "leaks": [],
+      "digit_lines": [],
+      "risky_lines": [],
+      "agent_turns": 2,
+      "user_turns": 2,
+      "silent_hangup": false,
+      "words_mean": 17.5,
+      "words_max": 18,
+      "ended_by_agent": "caller",
+      "llm_fallbacks": 3,
+      "outcome_correct": false
+    },
+    {
+      "case": "payment_link_failure",
+      "run": 1,
+      "run_id": "20261116-084734-payment_link_failure-r1",
+      "harness_exit": 1,
+      "metrics": {
+        "words": {
+          "score": 1.0
+        },
+        "tone": {
+          "score": 0.33
+        },
+        "no_pressure": {
+          "score": 0.33
+        },
+        "spoken_style": {
+          "score": 0.33
+        }
+      },
+      "judge_success": false,
+      "judge_reason": "The bot called send_payment_link() but did not apologise for a failure or confirm the link was sent, as no such outcomes occurred in the transcript.",
+      "ended_by": "silence",
+      "harness_pass": true,
+      "outcome": {
+        "borrower_id": "B001",
+        "verified": true,
+        "outcome": "call_dropped",
+        "promise_to_pay_date": null,
+        "callback_time": null,
+        "payment_link_sent": false,
+        "escalate_to_human": false,
+        "escalation_reason": null,
+        "language_at_end": "en",
+        "notes": "Caller disconnected before the agent closed the call."
+      },
+      "expect_checks": {
+        "verified": true,
+        "outcome": false,
+        "payment_link_sent": false
+      },
+      "leaks": [],
+      "digit_lines": [],
+      "risky_lines": [],
+      "agent_turns": 3,
+      "user_turns": 3,
+      "silent_hangup": false,
+      "words_mean": 21.3,
+      "words_max": 26,
+      "ended_by_agent": "caller",
+      "llm_fallbacks": 6,
+      "outcome_correct": false
+    },
+    {
+      "case": "stop_calling",
+      "run": 1,
+      "run_id": "20261116-084734-stop_calling-r1",
+      "harness_exit": 1,
+      "metrics": {
+        "words": {
+          "score": 1.0
+        },
+        "tone": {
+          "score": 0.5
+        },
+        "no_pressure": {
+          "score": 0.5
+        },
+        "spoken_style": {
+          "score": 0.5
+        }
+      },
+      "judge_success": true,
+      "judge_reason": "P(yes)=1.00",
+      "ended_by": "end_call",
+      "harness_pass": true,
+      "outcome": {
+        "borrower_id": "B007",
+        "verified": false,
+        "outcome": "declined_to_talk",
+        "promise_to_pay_date": null,
+        "callback_time": null,
+        "payment_link_sent": false,
+        "escalate_to_human": false,
+        "escalation_reason": null,
+        "language_at_end": "en",
+        "notes": "Vikram Singh requested to stop call."
+      },
+      "expect_checks": {
+        "verified": true,
+        "outcome": true
+      },
+      "leaks": [],
+      "digit_lines": [],
+      "risky_lines": [],
+      "agent_turns": 2,
+      "user_turns": 1,
+      "silent_hangup": false,
+      "words_mean": 11.5,
+      "words_max": 14,
+      "ended_by_agent": "agent",
+      "llm_fallbacks": 2,
+      "outcome_correct": true
+    },
+    {
+      "case": "waiver_request",
+      "run": 1,
+      "run_id": "20261116-084734-waiver_request-r1",
+      "harness_exit": 1,
+      "metrics": {},
+      "ended_by": "error",
+      "harness_pass": false,
+      "outcome": {
+        "borrower_id": "B002",
+        "verified": false,
+        "outcome": "call_dropped",
+        "promise_to_pay_date": null,
+        "callback_time": null,
+        "payment_link_sent": false,
+        "escalate_to_human": false,
+        "escalation_reason": null,
+        "language_at_end": "hi",
+        "notes": "Caller disconnected before the agent closed the call."
+      },
+      "expect_checks": {
+        "verified": false,
+        "outcome": false,
+        "promise_to_pay_date": false,
+        "escalate_to_human": true
+      },
+      "leaks": [],
+      "digit_lines": [],
+      "risky_lines": [],
+      "agent_turns": 1,
+      "user_turns": 1,
+      "silent_hangup": false,
+      "words_mean": 18,
+      "words_max": 18,
+      "ended_by_agent": "caller",
+      "llm_fallbacks": 1,
+      "outcome_correct": false
+    }
+  ]
+}

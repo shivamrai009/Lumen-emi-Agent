@@ -1,0 +1,121 @@
+{
+  "summary": {
+    "runs": 2,
+    "runs_with_outcome_record": 2,
+    "outcome_accuracy": 0.5,
+    "outcome_label_accuracy": 0.5,
+    "promise_to_pay_date_accuracy": 0.0,
+    "disclosure_violation_rate": 0.5,
+    "runs_with_digits_in_speech": 0.5,
+    "runs_with_risky_phrases_to_review": 0.0,
+    "runs_ending_in_silent_hangup": 0.0,
+    "agent_turns_median": 6.0,
+    "words_per_turn_mean": 23.8,
+    "judge_goal_success": 1.0,
+    "judge_passed_but_outcome_wrong": 0.0,
+    "llm_turns_on_fallback_model": 8,
+    "judge_metric_mean_scores": {
+      "no_pressure": 0.67,
+      "spoken_style": 0.67,
+      "tone": 0.83,
+      "words": 1.0
+    }
+  },
+  "runs": [
+    {
+      "case": "switch_to_hindi",
+      "run": 1,
+      "run_id": "20261117-121728-switch_to_hindi-r1",
+      "harness_exit": 1,
+      "metrics": {},
+      "ended_by": "error",
+      "harness_pass": false,
+      "outcome": {
+        "borrower_id": "B006",
+        "verified": true,
+        "outcome": "call_dropped",
+        "promise_to_pay_date": null,
+        "callback_time": null,
+        "payment_link_sent": false,
+        "escalate_to_human": false,
+        "escalation_reason": null,
+        "language_at_end": "hi",
+        "notes": "Caller disconnected before the agent closed the call."
+      },
+      "expect_checks": {
+        "verified": true,
+        "outcome": false,
+        "promise_to_pay_date": false,
+        "payment_link_sent": false,
+        "language_at_end": true
+      },
+      "leaks": [],
+      "digit_lines": [
+        "बहुत अच्छा, मैं अभी आपके पंजीकृत नंबर पर पेमेंट लिंक भेज रहा हूँ। \n\nधन्यवाद, फ़ातिमा, हम आपका लिंक मंगलवार, सत्रह नवंबर को भुगतान के लिए भेज देंगे। \n\nअलविदा। \n\n[call ends] \n\n{\n  \"callback_time\": null,\n  \"escalate_to_human\": false,\n  \"notes\": \"Caller confirmed she will pay on Tuesday, seventeenth November.\",\n  \"outcome\": \"promise_to_pay\",\n  \"payment_link_declined\": false,\n  \"promise_to_pay_date\": \"2026-11-17\"\n}"
+      ],
+      "risky_lines": [],
+      "agent_turns": 6,
+      "user_turns": 5,
+      "silent_hangup": false,
+      "words_mean": 28.8,
+      "words_max": 52,
+      "ended_by_agent": "caller",
+      "llm_fallbacks": 3,
+      "outcome_correct": false
+    },
+    {
+      "case": "payment_link_failure",
+      "run": 1,
+      "run_id": "20261117-121728-payment_link_failure-r1",
+      "harness_exit": 1,
+      "metrics": {
+        "words": {
+          "score": 1.0
+        },
+        "tone": {
+          "score": 0.83
+        },
+        "no_pressure": {
+          "score": 0.67
+        },
+        "spoken_style": {
+          "score": 0.67
+        }
+      },
+      "judge_success": true,
+      "judge_reason": "The bot apologized for the first failure, retried the SMS upon request, and confirmed in Turn 5 that the link had been sent.",
+      "ended_by": "end_call",
+      "harness_pass": true,
+      "outcome": {
+        "borrower_id": "B001",
+        "verified": true,
+        "outcome": "will_pay_on_time",
+        "promise_to_pay_date": null,
+        "callback_time": null,
+        "payment_link_sent": true,
+        "escalate_to_human": false,
+        "escalation_reason": null,
+        "language_at_end": "en",
+        "notes": "Rohan agreed to pay on time, requested payment link, received SMS"
+      },
+      "expect_checks": {
+        "verified": true,
+        "outcome": true,
+        "payment_link_sent": true
+      },
+      "leaks": [
+        "['EMI', 'Friday, the twentieth of November', 'loan', 'personal loan', 'twelve thousand five hundred rupees']: Thank you, Rohan. Your personal loan EMI of twelve thousand five hundred rupees is due on Friday, the twentieth of November. How do you plan to take care of this payment?"
+      ],
+      "digit_lines": [],
+      "risky_lines": [],
+      "agent_turns": 6,
+      "user_turns": 5,
+      "silent_hangup": false,
+      "words_mean": 18.8,
+      "words_max": 31,
+      "ended_by_agent": "agent",
+      "llm_fallbacks": 5,
+      "outcome_correct": true
+    }
+  ]
+}

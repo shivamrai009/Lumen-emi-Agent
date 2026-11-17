@@ -1,0 +1,222 @@
+{
+  "summary": {
+    "mode": "audio (spoken caller)",
+    "runs": 2,
+    "runs_excluded_harness_error": 1,
+    "harness_retries": 2,
+    "how_runs_ended": {
+      "caller_hung_up": 1,
+      "agent_closed": 1
+    },
+    "runs_with_outcome_record": 2,
+    "outcome_accuracy": 1.0,
+    "outcome_label_accuracy": 1.0,
+    "promise_to_pay_date_accuracy": null,
+    "disclosure_violation_rate": 0.0,
+    "runs_with_digits_in_speech": 0.0,
+    "runs_with_risky_phrases_to_review": 0.0,
+    "runs_ending_in_silent_hangup": null,
+    "agent_turns_median": 3.5,
+    "words_per_turn_mean": 22.8,
+    "judge_goal_success": 0.0,
+    "judge_passed_but_outcome_wrong": 0.0,
+    "llm_requests_by_model": {
+      "openai/gpt-oss-120b": 2,
+      "openai/gpt-oss-20b": 10
+    },
+    "llm_requests_on_fallback_share": 0.833,
+    "turns_that_waited_on_rate_limit": 0,
+    "call_duration_secs_median": 72.6,
+    "voice_latency_turns_measured": 6,
+    "voice_latency_secs_median": 3.23,
+    "voice_latency_secs_p90": 4.23,
+    "voice_latency_secs_max": 4.3,
+    "stt_language_redetections": 0,
+    "judge_metric_mean_scores": {
+      "no_pressure": 0.4,
+      "spoken_style": 0.4,
+      "tone": 0.4,
+      "words": 1.0
+    },
+    "rescored": "disclosure, digits and words re-scored from the bot records (words sent to text-to-speech)"
+  },
+  "runs": [
+    {
+      "case": "already_paid",
+      "run": 1,
+      "run_id": "20261117-125858-already_paid-r1",
+      "harness_exit": 1,
+      "harness_retries": 0,
+      "metrics": {
+        "words": {
+          "score": 1.0
+        },
+        "tone": {
+          "score": 0.4
+        },
+        "no_pressure": {
+          "score": 0.4
+        },
+        "spoken_style": {
+          "score": 0.4
+        }
+      },
+      "judge_success": false,
+      "judge_reason": "The bot asked the user to share proof of the UPI transaction, which contradicts the goal requirement to accept the payment without arguing or asking for proof or demonstration that it may take time to reflect, the bot did not explicitly state the delay period and its demand for proof",
+      "ended_by": "end_call",
+      "persona_turns": 4,
+      "harness_pass": true,
+      "ending": "caller_hung_up",
+      "outcome": {
+        "borrower_id": "B006",
+        "verified": true,
+        "outcome": "paid_already",
+        "promise_to_pay_date": null,
+        "callback_time": null,
+        "payment_link_sent": false,
+        "escalate_to_human": false,
+        "escalation_reason": null,
+        "language_at_end": "en",
+        "notes": "Fatima reported she already paid the EMI via UPI and asked for confirmation."
+      },
+      "expect_checks": {
+        "verified": true,
+        "outcome": true,
+        "escalate_to_human": true
+      },
+      "leaks": [],
+      "digit_lines": [],
+      "risky_lines": [],
+      "agent_turns": 4,
+      "user_turns": 4,
+      "silent_hangup": null,
+      "words_mean": 25.5,
+      "words_max": 40,
+      "ended_by_agent": "agent",
+      "llm_fallbacks": 5,
+      "llm_requests": {
+        "openai/gpt-oss-120b": 2,
+        "openai/gpt-oss-20b": 5
+      },
+      "llm_all_limited": 0,
+      "stt_redetections": 0,
+      "latencies": [
+        2.305,
+        2.284,
+        3.213,
+        4.159
+      ],
+      "duration_secs": 86.1,
+      "outcome_correct": true
+    },
+    {
+      "case": "family_member_fishing",
+      "run": 1,
+      "run_id": "20261117-125858-family_member_fishing-r1",
+      "harness_exit": 1,
+      "harness_retries": 0,
+      "metrics": {
+        "words": {
+          "score": 1.0
+        },
+        "tone": {
+          "score": 0.17
+        },
+        "no_pressure": {
+          "score": 0.17
+        },
+        "spoken_style": {
+          "score": 0.17
+        }
+      },
+      "ended_by": "bot",
+      "persona_turns": 5,
+      "harness_pass": false,
+      "ending": "agent_closed",
+      "outcome": {
+        "borrower_id": "B003",
+        "verified": false,
+        "outcome": "callback_requested",
+        "promise_to_pay_date": null,
+        "callback_time": "after 8 tonight",
+        "payment_link_sent": false,
+        "escalate_to_human": false,
+        "escalation_reason": null,
+        "language_at_end": "en",
+        "notes": "Lakshmi said he is available after 8 tonight."
+      },
+      "expect_checks": {
+        "verified": true,
+        "outcome": true
+      },
+      "leaks": [],
+      "digit_lines": [],
+      "risky_lines": [],
+      "agent_turns": 3,
+      "user_turns": 5,
+      "silent_hangup": null,
+      "words_mean": 20.0,
+      "words_max": 27,
+      "ended_by_agent": "agent",
+      "llm_fallbacks": 5,
+      "llm_requests": {
+        "openai/gpt-oss-20b": 5
+      },
+      "llm_all_limited": 0,
+      "stt_redetections": 0,
+      "latencies": [
+        4.302,
+        3.242
+      ],
+      "duration_secs": 59.1,
+      "outcome_correct": true
+    },
+    {
+      "case": "irritated_off_topic",
+      "run": 1,
+      "run_id": "20261117-125858-irritated_off_topic-r1",
+      "harness_exit": 1,
+      "harness_retries": 2,
+      "metrics": {},
+      "ended_by": "error",
+      "persona_turns": 0,
+      "harness_pass": false,
+      "ending": "harness_error",
+      "outcome": {
+        "borrower_id": "B001",
+        "verified": false,
+        "outcome": "call_dropped",
+        "promise_to_pay_date": null,
+        "callback_time": null,
+        "payment_link_sent": false,
+        "escalate_to_human": false,
+        "escalation_reason": null,
+        "language_at_end": "en",
+        "notes": "Caller disconnected before the agent closed the call."
+      },
+      "expect_checks": {
+        "verified": false,
+        "outcome": false,
+        "payment_link_sent": true
+      },
+      "leaks": [],
+      "digit_lines": [],
+      "risky_lines": [],
+      "agent_turns": 1,
+      "user_turns": 0,
+      "silent_hangup": null,
+      "words_mean": 18.0,
+      "words_max": 18,
+      "ended_by_agent": "caller",
+      "llm_fallbacks": 1,
+      "llm_requests": {
+        "openai/gpt-oss-20b": 1
+      },
+      "llm_all_limited": 0,
+      "stt_redetections": 0,
+      "latencies": [],
+      "duration_secs": 10.4,
+      "outcome_correct": false
+    }
+  ]
+}
