@@ -1,0 +1,96 @@
+{
+  "_comment": "Mock borrowers for Lumen Finance. Due dates are stored as offsets from the day the call is placed (due_offset_days: positive = due in N days, 0 = due today, negative = N days overdue) so the demo reads correctly on any date. data.py turns them into real dates at load time. Verification accepts either date_of_birth or phone_last4.",
+  "borrowers": [
+    {
+      "id": "B001",
+      "name": "Rohan Mehta",
+      "first_name": "Rohan",
+      "date_of_birth": "1988-03-14",
+      "phone_last4": "4821",
+      "loan_type": "personal loan",
+      "loan_type_hi": "पर्सनल लोन",
+      "emi_amount": 12500,
+      "due_offset_days": 5,
+      "overdue_amount": 0,
+      "preferred_language": "en"
+    },
+    {
+      "id": "B002",
+      "name": "Priya Sharma",
+      "first_name": "Priya",
+      "date_of_birth": "1992-07-22",
+      "phone_last4": "9034",
+      "loan_type": "two-wheeler loan",
+      "loan_type_hi": "टू-व्हीलर लोन",
+      "emi_amount": 4850,
+      "due_offset_days": -12,
+      "overdue_amount": 4850,
+      "preferred_language": "hi"
+    },
+    {
+      "id": "B003",
+      "name": "Arjun Nair",
+      "first_name": "Arjun",
+      "date_of_birth": "1985-11-02",
+      "phone_last4": "1177",
+      "loan_type": "home loan",
+      "loan_type_hi": "होम लोन",
+      "emi_amount": 38600,
+      "due_offset_days": 2,
+      "overdue_amount": 0,
+      "preferred_language": "en"
+    },
+    {
+      "id": "B004",
+      "name": "Sunita Devi",
+      "first_name": "Sunita",
+      "date_of_birth": "1979-01-30",
+      "phone_last4": "5562",
+      "loan_type": "consumer durable loan",
+      "loan_type_hi": "कंज़्यूमर ड्यूरेबल लोन",
+      "emi_amount": 3299,
+      "due_offset_days": -35,
+      "overdue_amount": 6598,
+      "preferred_language": "hi"
+    },
+    {
+      "id": "B005",
+      "name": "Karthik Iyer",
+      "first_name": "Karthik",
+      "date_of_birth": "1990-05-09",
+      "phone_last4": "3308",
+      "loan_type": "car loan",
+      "loan_type_hi": "कार लोन",
+      "emi_amount": 21750,
+      "due_offset_days": 0,
+      "overdue_amount": 0,
+      "preferred_language": "en"
+    },
+    {
+      "id": "B006",
+      "name": "Fatima Sheikh",
+      "first_name": "Fatima",
+      "date_of_birth": "1995-09-18",
+      "phone_last4": "6640",
+      "loan_type": "education loan",
+      "loan_type_hi": "एजुकेशन लोन",
+      "emi_amount": 9200,
+      "due_offset_days": -4,
+      "overdue_amount": 9200,
+      "preferred_language": "en"
+    },
+    {
+      "id": "B007",
+      "name": "Vikram Singh",
+      "first_name": "Vikram",
+      "date_of_birth": "1983-12-25",
+      "phone_last4": "2219",
+      "loan_type": "personal loan",
+      "loan_type_hi": "पर्सनल लोन",
+      "emi_amount": 15000,
+      "due_offset_days": 7,
+      "overdue_amount": 0,
+      "preferred_language": "en"
+    }
+  ]
+}
